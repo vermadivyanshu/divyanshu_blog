@@ -2,7 +2,7 @@
 lock '3.3.5'
 
 set :application, 'divyanshu_blog_app'
-set :repo_url, 'https://github.com/vermadivyanshu/divyanshu_blog.git'
+set :repo_url, 'git@example.com:me/my_repo.git'
 set :user, "redmine"
 set :stages, ["staging", "production"]
 set :default_stage, "production"
