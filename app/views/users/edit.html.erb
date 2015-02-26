@@ -1,0 +1,26 @@
+<h2>Edit User</h2>
+<%= form_for @user do |f| %>
+Email: <%= @user.email %>
+<br/>
+
+<p>
+	<%= f.label "Show" %>
+ 	<%= f.check_box :show_permission %> 
+ </p>
+ <p>
+	<%= f.label "Edit" %> 
+ 	<%= f.check_box :edit_permission %>
+ </p>
+ <p>
+	<%= f.label "Delete" %> 
+ 	<%= f.check_box :delete_permission %> 
+ </p>
+ <p>
+	<%= f.label "Comment" %>
+ 	<%= f.check_box :comment_permission %>
+ </p>
+
+<%= f.submit("Update User") %>
+
+<% end %>
+<%= link_to 'LogOut', logout_users_path %>

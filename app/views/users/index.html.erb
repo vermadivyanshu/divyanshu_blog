@@ -1,0 +1,31 @@
+<h1>Listing Users</h1>
+<br/>
+ 
+<table>
+  <tr>
+    <th>Email</th>
+    <th>Role</th>
+    <th>Show</th>
+    <th>Edit</th>
+    <th>Delete</th>
+    <th>Comment</th>
+    <th>Index</th>
+  </tr>
+ 
+  <% @users.each do |user| %>
+    <tr>
+      <td><%= user.email %></td>
+      <td><%= user.role %></td>
+      <td><%= user.show_permission %></td>
+      <td><%= user.edit_permission %></td>
+      <td><%= user.delete_permission %></td>
+      <td><%= user.comment_permission %></td>
+      <td><%= user.index_permission %></td>
+      <td><%= link_to 'Edit', edit_user_path(user) %></td>
+      <td><%= link_to 'Destroy', article_path(user),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>
+<%= link_to 'LogOut', logout_users_path %>
