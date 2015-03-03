@@ -8275,3 +8275,16 @@ Started GET "/users/login" for 127.0.0.1 at 2015-03-02 17:55:39 +0530
 Processing by UsersController#login as HTML
   Rendered users/login.html.erb within layouts/application (0.9ms)
 Completed 200 OK in 156ms (Views: 155.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/login" for 127.0.0.1 at 2015-03-03 17:34:19 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by UsersController#login as HTML
+  Rendered users/login.html.erb within layouts/application (15.6ms)
+Completed 200 OK in 41ms (Views: 23.3ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-03-03 17:34:27 +0530
+Processing by UsersController#login as HTML
+  Rendered users/login.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 7ms (Views: 5.8ms | ActiveRecord: 0.0ms)
