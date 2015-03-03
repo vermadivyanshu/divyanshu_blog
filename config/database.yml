@@ -21,4 +21,4 @@ test:
  <<: *default
  database: divyanshu_blog
  username: root
- #password: 
+ password: 
