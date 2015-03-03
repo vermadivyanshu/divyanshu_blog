@@ -7992,3 +7992,286 @@ Started GET "/assets/application-065959174ad48d43202782cc4ff66fc6.js?body=1" for
 
 
 Started GET "/assets/welcome-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for 127.0.0.1 at 2015-02-25 13:36:37 +0530
+  [1m[36m (460.6ms)[0m  [1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (521.1ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations`  ON `schema_migrations` (`version`) 
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateArticles (20150219083108)
+  [1m[35m (276.0ms)[0m  CREATE TABLE `articles` (`id` int(11) auto_increment PRIMARY KEY, `title` varchar(255), `text` text, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20150219083108')
+  [1m[36m (44.9ms)[0m  [1mCOMMIT[0m
+Migrating to CreateComments (20150219103345)
+  [1m[35m (311.9ms)[0m  CREATE TABLE `comments` (`id` int(11) auto_increment PRIMARY KEY, `commenter` varchar(255), `body` text, `article_id` int(11), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL,  INDEX `index_comments_on_article_id`  (`article_id`) ) ENGINE=InnoDB
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20150219103345')
+  [1m[36m (48.1ms)[0m  [1mCOMMIT[0m
+Migrating to CreateUsers (20150223085530)
+  [1m[35m (255.7ms)[0m  CREATE TABLE `users` (`id` int(11) auto_increment PRIMARY KEY, `email` varchar(255), `password_digest` varchar(255), `role` varchar(255) DEFAULT 'blogger', `show_permission` tinyint(1) DEFAULT 0, `edit_permission` tinyint(1) DEFAULT 0, `delete_permission` tinyint(1) DEFAULT 0, `comment_permission` tinyint(1) DEFAULT 0, `index_permission` tinyint(1) DEFAULT 1, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20150223085530')
+  [1m[36m (46.6ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36m (0.6ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'blog'
+  AND fk.table_name = 'articles'
+[0m
+  [1m[35m (0.3ms)[0m  SHOW CREATE TABLE `articles`
+  [1m[36m (0.5ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'blog'
+  AND fk.table_name = 'comments'
+[0m
+  [1m[35m (0.3ms)[0m  SHOW CREATE TABLE `comments`
+  [1m[36m (0.5ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'blog'
+  AND fk.table_name = 'users'
+[0m
+  [1m[35m (0.4ms)[0m  SHOW CREATE TABLE `users`
+
+
+Started GET "/users/login" for 127.0.0.1 at 2015-03-02 17:55:07 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by UsersController#login as HTML
+  Rendered users/login.html.erb within layouts/application (42.4ms)
+Completed 200 OK in 257ms (Views: 203.2ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/articles-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for 127.0.0.1 at 2015-03-02 17:55:07 +0530
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for 127.0.0.1 at 2015-03-02 17:55:07 +0530
+
+
+Started GET "/assets/application-5266d2988799ecc8fe6e81eaab412e7d.css?body=1" for 127.0.0.1 at 2015-03-02 17:55:07 +0530
+
+
+Started GET "/assets/comments-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for 127.0.0.1 at 2015-03-02 17:55:07 +0530
+
+
+Started GET "/assets/welcome-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for 127.0.0.1 at 2015-03-02 17:55:07 +0530
+
+
+Started GET "/assets/users-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for 127.0.0.1 at 2015-03-02 17:55:07 +0530
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for 127.0.0.1 at 2015-03-02 17:55:07 +0530
+
+
+Started GET "/assets/turbolinks-da8ddad9c2c5483d4c5c30c1ce325253.js?body=1" for 127.0.0.1 at 2015-03-02 17:55:07 +0530
+
+
+Started GET "/assets/articles-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for 127.0.0.1 at 2015-03-02 17:55:07 +0530
+
+
+Started GET "/assets/comments-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for 127.0.0.1 at 2015-03-02 17:55:07 +0530
+
+
+Started GET "/assets/users-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for 127.0.0.1 at 2015-03-02 17:55:07 +0530
+
+
+Started GET "/assets/welcome-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for 127.0.0.1 at 2015-03-02 17:55:07 +0530
+
+
+Started GET "/assets/application-065959174ad48d43202782cc4ff66fc6.js?body=1" for 127.0.0.1 at 2015-03-02 17:55:07 +0530
+
+
+Started GET "/" for 127.0.0.1 at 2015-03-02 17:55:09 +0530
+Processing by UsersController#login as HTML
+  Rendered users/login.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 63ms (Views: 62.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2015-03-02 17:55:13 +0530
+Processing by UsersController#new as HTML
+Redirected to http://localhost:3000/users/login
+Filter chain halted as :confirm_logged_in rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/login" for 127.0.0.1 at 2015-03-02 17:55:13 +0530
+Processing by UsersController#login as HTML
+  Rendered users/login.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 77ms (Views: 75.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2015-03-02 17:55:17 +0530
+Processing by UsersController#new as HTML
+Redirected to http://localhost:3000/users/login
+Filter chain halted as :confirm_logged_in rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/login" for 127.0.0.1 at 2015-03-02 17:55:17 +0530
+Processing by UsersController#login as HTML
+  Rendered users/login.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 77ms (Views: 76.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2015-03-02 17:55:24 +0530
+Processing by UsersController#new as HTML
+Redirected to http://localhost:3000/users/login
+Filter chain halted as :confirm_logged_in rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/login" for 127.0.0.1 at 2015-03-02 17:55:24 +0530
+Processing by UsersController#login as HTML
+  Rendered users/login.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 67ms (Views: 65.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2015-03-02 17:55:25 +0530
+Processing by UsersController#new as HTML
+Redirected to http://localhost:3000/users/login
+Filter chain halted as :confirm_logged_in rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/login" for 127.0.0.1 at 2015-03-02 17:55:25 +0530
+Processing by UsersController#login as HTML
+  Rendered users/login.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 52ms (Views: 51.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2015-03-02 17:55:25 +0530
+Processing by UsersController#new as HTML
+Redirected to http://localhost:3000/users/login
+Filter chain halted as :confirm_logged_in rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/login" for 127.0.0.1 at 2015-03-02 17:55:25 +0530
+Processing by UsersController#login as HTML
+  Rendered users/login.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 53ms (Views: 52.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2015-03-02 17:55:33 +0530
+Processing by UsersController#new as HTML
+Redirected to http://localhost:3000/users/login
+Filter chain halted as :confirm_logged_in rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/login" for 127.0.0.1 at 2015-03-02 17:55:33 +0530
+Processing by UsersController#login as HTML
+  Rendered users/login.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 58ms (Views: 57.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2015-03-02 17:55:37 +0530
+Processing by UsersController#new as HTML
+Redirected to http://localhost:3000/users/login
+Filter chain halted as :confirm_logged_in rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/login" for 127.0.0.1 at 2015-03-02 17:55:37 +0530
+Processing by UsersController#login as HTML
+  Rendered users/login.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 63ms (Views: 62.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2015-03-02 17:55:38 +0530
+Processing by UsersController#new as HTML
+Redirected to http://localhost:3000/users/login
+Filter chain halted as :confirm_logged_in rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/login" for 127.0.0.1 at 2015-03-02 17:55:38 +0530
+Processing by UsersController#login as HTML
+  Rendered users/login.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 55ms (Views: 54.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2015-03-02 17:55:38 +0530
+Processing by UsersController#new as HTML
+Redirected to http://localhost:3000/users/login
+Filter chain halted as :confirm_logged_in rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/login" for 127.0.0.1 at 2015-03-02 17:55:38 +0530
+Processing by UsersController#login as HTML
+  Rendered users/login.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 57ms (Views: 56.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2015-03-02 17:55:38 +0530
+Processing by UsersController#new as HTML
+Redirected to http://localhost:3000/users/login
+Filter chain halted as :confirm_logged_in rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/login" for 127.0.0.1 at 2015-03-02 17:55:38 +0530
+Processing by UsersController#login as HTML
+  Rendered users/login.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 53ms (Views: 52.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2015-03-02 17:55:38 +0530
+Processing by UsersController#new as HTML
+Redirected to http://localhost:3000/users/login
+Filter chain halted as :confirm_logged_in rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/login" for 127.0.0.1 at 2015-03-02 17:55:38 +0530
+Processing by UsersController#login as HTML
+  Rendered users/login.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 108ms (Views: 107.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2015-03-02 17:55:38 +0530
+Processing by UsersController#new as HTML
+Redirected to http://localhost:3000/users/login
+Filter chain halted as :confirm_logged_in rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/login" for 127.0.0.1 at 2015-03-02 17:55:38 +0530
+Processing by UsersController#login as HTML
+  Rendered users/login.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 53ms (Views: 52.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2015-03-02 17:55:39 +0530
+Processing by UsersController#new as HTML
+Redirected to http://localhost:3000/users/login
+Filter chain halted as :confirm_logged_in rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/login" for 127.0.0.1 at 2015-03-02 17:55:39 +0530
+Processing by UsersController#login as HTML
+  Rendered users/login.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 50ms (Views: 49.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2015-03-02 17:55:39 +0530
+Processing by UsersController#new as HTML
+Redirected to http://localhost:3000/users/login
+Filter chain halted as :confirm_logged_in rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/login" for 127.0.0.1 at 2015-03-02 17:55:39 +0530
+Processing by UsersController#login as HTML
+  Rendered users/login.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 156ms (Views: 155.5ms | ActiveRecord: 0.0ms)
